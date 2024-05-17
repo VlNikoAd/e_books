@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: e_books
+
+  datasource:
+    url: jdbc:postgresql://localhost:5437/ebooks
+    username: ebooks
+    password: ebooks
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 8080
