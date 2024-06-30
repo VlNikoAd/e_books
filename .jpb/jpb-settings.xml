@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="e_books" name="Default">
+        <packages>
+          <package value="org.example.e_books" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>
