@@ -1,4 +1,4 @@
-package org.example.e_books.service;
+package org.example.e_books.dao;
 
 public interface UserBookService {
 }

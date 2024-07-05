@@ -1,8 +1,8 @@
-package org.example.e_books.service.impl;
+package org.example.e_books.dao.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.e_books.repository.BookRepository;
-import org.example.e_books.service.BookService;
+import org.example.e_books.dao.BookService;
 import org.springframework.stereotype.Service;
 
 @Service
