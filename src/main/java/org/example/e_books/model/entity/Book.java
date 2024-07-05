@@ -12,9 +12,9 @@ import java.util.UUID;
 
 @Entity
 @Data
-@Table(name = "books")
+@Table(name = "book")
 @NoArgsConstructor
-public class Books {
+public class Book {
 
 	@Id
 	@UuidGenerator

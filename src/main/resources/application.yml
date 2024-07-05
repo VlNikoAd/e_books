@@ -3,9 +3,9 @@ spring:
     name: e_books
 
   datasource:
-    url: jdbc:postgresql://localhost:5437/ebooks
-    username: ebooks
-    password: ebooks
+    url: jdbc:postgresql://localhost:5432/ebook
+    username: ebook
+    password: ebook
 
   jpa:
     hibernate:

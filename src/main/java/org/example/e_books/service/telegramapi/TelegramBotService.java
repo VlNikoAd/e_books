@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class TelegramBotService extends TelegramLongPollingBot {
 
 	private final TelegramBotConfig telegramBotConfig;
-	ReplyKeyboardMarkup replyKeyboardMarkup = this.initKeyboard();
+	private final ReplyKeyboardMarkup replyKeyboardMarkup = this.initKeyboard();
 
 	@Override
 	public String getBotUsername() {
@@ -36,11 +36,12 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
 		if (update.hasMessage() && update.getMessage().hasText()) {
 
-
-
 			String messageTest = update.getMessage().getText();
 			long chatId = update.getMessage().getChatId();
 			String targetName = update.getMessage().getChat().getFirstName();
+
+			String userName = update.getMessage().getChat().getUserName();
+			System.out.println(userName);
 
 			TelegramCommandEnum commandEnum = TelegramCommandEnum.findByCommand(messageTest);
 
@@ -96,6 +97,9 @@ public class TelegramBotService extends TelegramLongPollingBot {
 		KeyboardRow generatePassword = new KeyboardRow();
 		generatePassword.add(new KeyboardButton("Старт"));
 		generatePassword.add(new KeyboardButton("Помощь"));
+
+		generatePassword.add(new KeyboardButton("Мои книги"));
+		generatePassword.add(new KeyboardButton("Добавить книгу"));
 
 		keyboardRows.add(generatePassword);
 

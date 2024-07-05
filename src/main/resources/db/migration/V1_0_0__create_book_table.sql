@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS public.books
+CREATE TABLE IF NOT EXISTS public.book
 (
     id     UUID    not null,
     name   varchar not null,

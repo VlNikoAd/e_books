@@ -14,13 +14,16 @@ import java.util.UUID;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "users")
-public class Users {
+@Table(name = "user_data")
+public class UserData {
 
 	@Id
 	@UuidGenerator
 	@Column(name = "id", nullable = false)
 	private UUID id;
+
+	@Column(name = "name")
+	private String name;
 
 	@Column(name = "login")
 	private String login;
@@ -28,13 +31,12 @@ public class Users {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "created_at", nullable = false)
-	private LocalDateTime createdAt;
+	@Column(name = "login_at", nullable = false)
+	private LocalDateTime loginAt;
 
-	@Column(name = "last_updated_at", nullable = false)
-	private LocalDateTime lastUpdatedAt;
+	@Column(name = "last_active_at", nullable = false)
+	private LocalDateTime lastActiveAt;
 
 	@Column(name = "is_active")
 	private Boolean isActive;
-
 }
