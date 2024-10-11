@@ -2,6 +2,7 @@ package org.example.e_books.service.telegramapi;
 
 import lombok.RequiredArgsConstructor;
 import org.example.e_books.config.TelegramBotConfig;
+import org.example.e_books.dao.UserDataService;
 import org.example.e_books.model.enums.TelegramCommandEnum;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -21,6 +22,8 @@ public class TelegramBotService extends TelegramLongPollingBot {
 	private final TelegramBotConfig telegramBotConfig;
 	private final ReplyKeyboardMarkup replyKeyboardMarkup = this.initKeyboard();
 
+	private final UserDataService userDataService;
+
 	@Override
 	public String getBotUsername() {
 		return telegramBotConfig.getBotName();
@@ -39,9 +42,9 @@ public class TelegramBotService extends TelegramLongPollingBot {
 			String messageTest = update.getMessage().getText();
 			long chatId = update.getMessage().getChatId();
 			String targetName = update.getMessage().getChat().getFirstName();
+			String userLogin = update.getMessage().getChat().getUserName();
 
-			String userName = update.getMessage().getChat().getUserName();
-			System.out.println(userName);
+			userDataService.updateUserLoginAtAndSaveUserIfNotExit(targetName, userLogin);
 
 			TelegramCommandEnum commandEnum = TelegramCommandEnum.findByCommand(messageTest);
 
@@ -54,8 +57,6 @@ public class TelegramBotService extends TelegramLongPollingBot {
 
 		}
 	}
-
-
 
 	private void startCommandReceived(long chatId, String targetName) {
 
